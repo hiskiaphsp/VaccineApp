@@ -1,0 +1,66 @@
+﻿@model VaccineApp.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+@section script{
+    @if (TempData["error"] != null)
+    {
+        <script>
+            // Mengambil nilai TempData error
+            var errorMessage = '@TempData["error"]';
+
+            // Menampilkan toast dengan pesan error
+            Toastify({
+                text: errorMessage,
+                duration: 3000,
+                gravity: 'top',
+                position: 'right',
+                backgroundColor: 'linear-gradient(to right, #FF0000, #FF5733)',
+                progressBar: true,
+                close: true
+            }).showToast();
+        </script>
+    }
+}
+<div class="container-fluid p-0">
+    <div class="row m-0">
+        <div class="col-12 p-0">
+            <div class="login-card login-dark">
+                <div>
+                    <div>
+                        <a class="logo" href=""><img class="img-fluid for-light" src="@Url.Content("~/Public/assets/images/logo/logo.png")" alt="loginpage"><img class="img-fluid for-dark" src="@Url.Content("~/Public/assets/images/logo/logo_dark.png")" alt="loginpage"></a>
+                    </div>
+                    <div class="login-main">
+                        @using (Html.BeginForm("Login", "Auth", FormMethod.Post, new { @class = "theme-form" }))
+                        {
+                            <h4>Sign in to your account</h4>
+                            <p>Enter your username and password to login</p>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Username, new { @class = "col-form-label" })
+                                @Html.TextBoxFor(model => model.Username, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter your username" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Password, new { @class = "col-form-label" })
+                                <div class="form-input position-relative">
+                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", required = "required", placeholder = "Enter your password" })
+                                    <div class="show-hide"><span class="show"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-0">
+                                <div class="checkbox p-0">
+                                    <label class="text-muted" for="checkbox1">Remember password</label>
+                                </div>
+                                <a class="link" href="">Forgot password?</a>
+                                <div class="text-end mt-3">
+                                    <button class="btn btn-primary btn-block w-100" type="submit">Sign in</button>
+                                </div>
+                            </div>
+                            <p class="mt-4 mb-0 text-center">Don't have an account? <a class="ms-2" href="">Create Account</a></p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

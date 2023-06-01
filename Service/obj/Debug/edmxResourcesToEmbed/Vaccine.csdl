@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VaccineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="community">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nik" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="date_of_birth" Type="DateTime" Precision="0" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="province" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="hospital">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hospital_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="province" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="producer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="producer_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="province" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="phone_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="roles" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vaccine_producers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="producer_id" Type="Int32" />
+    <Property Name="vaccine_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="vaccine_records">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="community_id" Type="Int32" />
+    <Property Name="hospital_id" Type="Int32" />
+    <Property Name="vaccine_id" Type="Int32" />
+    <Property Name="vaccine_date" Type="DateTime" Precision="0" />
+    <Property Name="dose_number" Type="Int32" />
+    <Property Name="administration_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="nurse_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vaccine">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vaccine_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="vaccine_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dose_count" Type="Double" />
+    <Property Name="dose" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Double" />
+  </EntityType>
+  <EntityContainer Name="VaccineEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="communities" EntityType="Self.community" />
+    <EntitySet Name="hospitals" EntityType="Self.hospital" />
+    <EntitySet Name="producers" EntityType="Self.producer" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="vaccine_producers" EntityType="Self.vaccine_producers" />
+    <EntitySet Name="vaccine_records" EntityType="Self.vaccine_records" />
+    <EntitySet Name="vaccines" EntityType="Self.vaccine" />
+  </EntityContainer>
+</Schema>

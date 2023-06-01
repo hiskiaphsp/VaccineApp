@@ -1,0 +1,53 @@
+﻿@model VaccineApp.MyServiceReference.vaccine
+@{
+    ViewBag.Title = "Edit Vaccine";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section breadcrumb_title{
+    <h3>Vaccine</h3>
+}
+@section breadcrumb_items{
+    <li class="breadcrumb-item">Vaccine</li>
+    <li class="breadcrumb-item active">Edit Vaccine</li>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Edit Vaccine</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("UpdateVaccine", "App", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(model => model.id)
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.vaccine_name, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.vaccine_name, new { @class = "form-control", placeholder = "Enter vaccine name" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.vaccine_type, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.vaccine_type, new { @class = "form-control", placeholder = "Enter vaccine type" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.dose_count, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.dose_count, new { @class = "form-control", placeholder = "Enter dose count" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.dose, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.dose, new { @class = "form-control", placeholder = "Enter dose information" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.price, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.price, new { @class = "form-control", placeholder = "Enter price" })
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

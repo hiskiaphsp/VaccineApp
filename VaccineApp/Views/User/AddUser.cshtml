@@ -1,0 +1,68 @@
+﻿@model VaccineApp.MyServiceReference.user
+
+@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section breadcrumb_title{
+    <h3>User</h3>
+}
+
+@section breadcrumb_items{
+    <li class="breadcrumb-item">User</li>
+    <li class="breadcrumb-item active">Add User</li>
+}
+
+@section css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/select2.css")">
+}
+
+@section script{
+    <script src="@Url.Content("~/Public/assets/js/select2/select2.full.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/select2/select2-custom.js")"></script>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Add User</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("AddUser", "User", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.email, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.email, new { @class = "form-control", placeholder = "Enter email" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.username, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.username, new { @class = "form-control", placeholder = "Enter username" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.password, new { @class = "col-form-label pt-0" })
+                            @Html.PasswordFor(model => model.password, new { @class = "form-control", placeholder = "Enter password" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.roles, new { @class = "col-form-label pt-0" })
+                            <select class="js-example-basic-single col-sm-12" id="roles" name="roles">
+                                <option selected disabled>Choose</option>
+                                <option value="BPOM">BPOM</option>
+                                <option value="Hospital">Hospital</option>
+                                <option value="Producer">Producer</option>
+                                <option value="Pemerintah">Pemerintah</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            @Html.HiddenFor(model => model.created_at, new { @Value = DateTime.Now.ToString() })
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="@Url.Action("Index", "User")" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

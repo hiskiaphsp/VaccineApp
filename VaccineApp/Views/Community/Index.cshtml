@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "Community";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section breadcrumb_title{
+    <h3>Communities</h3>
+}
+@section breadcrumb_items{
+    <li class="breadcrumb-item active">Communities</li>
+}
+@section css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/datatables.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/datatable-extension.css")">
+
+}
+@section script{
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatables/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.buttons.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/buttons.colVis.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/pdfmake.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/vfs_fonts.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.autoFill.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.select.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/buttons.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/buttons.html5.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/buttons.print.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.responsive.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/responsive.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.keyTable.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.colReorder.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.fixedHeader.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.rowReorder.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.scroller.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/custom.js")"></script>
+
+}
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Communities</h5>
+        </div>
+        <div class="card-body">
+            @if (Session["Role"] != null && Session["Role"].ToString() == "Pemerintah")
+            { 
+                <div class="d-flex justify-content-end mb-3">
+                    <a class="btn btn-primary" href="@Url.Action("CreateCommunity", "Community")">Add People</a>
+                </div>
+            }
+            <div class="dt-ext table-responsive">
+                <table class="display" id="export-button">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>NIK</th>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Province</th>
+                            <th>Country</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            @if (Session["Role"] != null && Session["Role"].ToString() == "Pemerintah")
+                            {
+                                <th>Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int counter = 1;
+                            foreach (var community in Model)
+                            {
+                                                <tr>
+                                                    <td>@counter</td>
+                                                    <td>@community.nik</td>
+                                                    <td>@community.name</td>
+                                                    <td>@community.date_of_birth.ToShortDateString()</td>
+                                                    <td>@community.address</td>
+                                                    <td>@community.city</td>
+                                                    <td>@community.province</td>
+                                                    <td>@community.country</td>
+                                                    <td>@community.phone_number</td>
+                                                    <td>@community.email</td>
+                                                    @if (Session["Role"] != null && Session["Role"].ToString() == "Pemerintah")
+                                                    {
+                                                        <td>
+                                                            <ul class="action">
+                                                                <li class="edit">
+                                                                    <a href="@Url.Action("EditCommunity", "Community", new { id = community.id })"><i class="icon-pencil-alt"></i></a>
+                                                                </li>
+                                                                <li class="delete">
+                                                                    <a href="@Url.Action("DeleteCommunity", "Community", new { id = community.id })" onclick="return confirm('Are you sure you want to delete this person?');"><i class="icon-trash"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    }
+                                                </tr>
+                                counter++;
+
+                            }
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>No</th>
+                            <th>NIK</th>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Province</th>
+                            <th>Country</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            @if (Session["Role"] != null && Session["Role"].ToString() == "Pemerintah")
+                            {
+                                <th>Action</th>
+                            }
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

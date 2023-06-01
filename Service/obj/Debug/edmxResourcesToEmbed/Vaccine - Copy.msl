@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VaccineModelStoreContainer" CdmEntityContainer="VaccineEntities">
+    <EntitySetMapping Name="communities">
+      <EntityTypeMapping TypeName="VaccineModel.community">
+        <MappingFragment StoreEntitySet="communities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nik" ColumnName="nik" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hospitals">
+      <EntityTypeMapping TypeName="VaccineModel.hospital">
+        <MappingFragment StoreEntitySet="hospitals">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="hospital_name" ColumnName="hospital_name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="producers">
+      <EntityTypeMapping TypeName="VaccineModel.producer">
+        <MappingFragment StoreEntitySet="producers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producer_name" ColumnName="producer_name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="VaccineModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="roles" ColumnName="roles" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vaccine_producers">
+      <EntityTypeMapping TypeName="VaccineModel.vaccine_producers">
+        <MappingFragment StoreEntitySet="vaccine_producers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="producer_id" ColumnName="producer_id" />
+          <ScalarProperty Name="vaccine_id" ColumnName="vaccine_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vaccine_records">
+      <EntityTypeMapping TypeName="VaccineModel.vaccine_records">
+        <MappingFragment StoreEntitySet="vaccine_records">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="community_id" ColumnName="community_id" />
+          <ScalarProperty Name="hospital_id" ColumnName="hospital_id" />
+          <ScalarProperty Name="vaccine_id" ColumnName="vaccine_id" />
+          <ScalarProperty Name="vaccine_date" ColumnName="vaccine_date" />
+          <ScalarProperty Name="dose_number" ColumnName="dose_number" />
+          <ScalarProperty Name="administration_type" ColumnName="administration_type" />
+          <ScalarProperty Name="nurse_name" ColumnName="nurse_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vaccines">
+      <EntityTypeMapping TypeName="VaccineModel.vaccine">
+        <MappingFragment StoreEntitySet="vaccines">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="vaccine_name" ColumnName="vaccine_name" />
+          <ScalarProperty Name="vaccine_type" ColumnName="vaccine_type" />
+          <ScalarProperty Name="dose_count" ColumnName="dose_count" />
+          <ScalarProperty Name="dose" ColumnName="dose" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

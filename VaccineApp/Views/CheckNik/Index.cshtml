@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Check Nik";
+}
+@section breadcrumb_title{
+    <h3>Check NIK</h3>
+}
+@section breadcrumb_items{
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item active">Check NIK</li>
+}
+
+@section css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/datatables.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/datatable-extension.css")">
+
+}
+@section script{
+
+    <div id="partialViewContainer">
+        <!-- Konten lain di halaman utama -->
+    </div>
+
+    <script>
+        function loadPartialView(searchQuery) {
+            var url = '@Url.Action("SearchNik", "CheckNik")'; // Ganti "SearchNik" dengan nama aksi yang sesuai di CheckNikController
+            $.ajax({
+                url: url,
+                data: { searchQuery: searchQuery },
+                type: 'GET',
+                success: function (result) {
+                    $('#partialViewContainer').html(result);
+                    Toastify({
+                        text: "Data Found!",
+                        duration: 3000,
+                        gravity: 'top',
+                        position: 'right',
+                        backgroundColor: 'linear-gradient(to right, #008000, #006600)',
+                        progressBar: true,
+                        close: true
+                    }).showToast();
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        }
+
+
+        // Memuat partial view saat tombol pencarian diklik
+        $('#searchButton').click(function () {
+            var searchQuery = $('#searchInput').val();
+            loadPartialView(searchQuery);
+        });
+    </script>
+
+}
+<div class="container-fluid search-page">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="theme-form">
+                        <div class="input-group m-0 flex-nowrap">
+                            <input class="form-control-plaintext" id="searchInput" type="search" placeholder="Input NIK..."><button id="searchButton" class="btn btn-primary input-group-text">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="partialViewContainer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

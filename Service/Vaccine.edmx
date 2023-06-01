@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VaccineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="communities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nik" Type="varchar" MaxLength="30" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="date_of_birth" Type="date" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="255" />
+          <Property Name="province" Type="varchar" MaxLength="255" />
+          <Property Name="country" Type="varchar" MaxLength="255" />
+          <Property Name="phone_number" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="hospitals">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hospital_name" Type="varchar" MaxLength="255" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="255" />
+          <Property Name="province" Type="varchar" MaxLength="255" />
+          <Property Name="country" Type="varchar" MaxLength="255" />
+          <Property Name="phone_number" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="producers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="producer_name" Type="varchar" MaxLength="255" />
+          <Property Name="address" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="255" />
+          <Property Name="province" Type="varchar" MaxLength="255" />
+          <Property Name="country" Type="varchar" MaxLength="255" />
+          <Property Name="phone_number" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="username" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="roles" Type="varchar" MaxLength="255" />
+          <Property Name="created_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="vaccine_producers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="producer_id" Type="int" />
+          <Property Name="vaccine_id" Type="int" />
+        </EntityType>
+        <EntityType Name="vaccine_records">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="community_id" Type="int" />
+          <Property Name="hospital_id" Type="int" />
+          <Property Name="vaccine_id" Type="int" />
+          <Property Name="vaccine_date" Type="date" />
+          <Property Name="dose_number" Type="int" />
+          <Property Name="administration_type" Type="varchar" MaxLength="255" />
+          <Property Name="nurse_name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="vaccines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vaccine_name" Type="varchar" MaxLength="255" />
+          <Property Name="vaccine_type" Type="varchar" MaxLength="255" />
+          <Property Name="dose_count" Type="float" />
+          <Property Name="dose" Type="varchar" MaxLength="255" />
+          <Property Name="price" Type="float" />
+        </EntityType>
+        <EntityContainer Name="VaccineModelStoreContainer">
+          <EntitySet Name="communities" EntityType="Self.communities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hospitals" EntityType="Self.hospitals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producers" EntityType="Self.producers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vaccine_producers" EntityType="Self.vaccine_producers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vaccine_records" EntityType="Self.vaccine_records" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vaccines" EntityType="Self.vaccines" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VaccineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="community">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nik" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="date_of_birth" Type="DateTime" Precision="0" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="province" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="hospital">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hospital_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="province" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="producer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="producer_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="province" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="roles" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vaccine_producers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="producer_id" Type="Int32" />
+          <Property Name="vaccine_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vaccine_records">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="community_id" Type="Int32" />
+          <Property Name="hospital_id" Type="Int32" />
+          <Property Name="vaccine_id" Type="Int32" />
+          <Property Name="vaccine_date" Type="DateTime" Precision="0" />
+          <Property Name="dose_number" Type="Int32" />
+          <Property Name="administration_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nurse_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vaccine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vaccine_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="vaccine_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dose_count" Type="Double" />
+          <Property Name="dose" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Double" />
+        </EntityType>
+        <EntityContainer Name="VaccineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="communities" EntityType="Self.community" />
+          <EntitySet Name="hospitals" EntityType="Self.hospital" />
+          <EntitySet Name="producers" EntityType="Self.producer" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="vaccine_producers" EntityType="Self.vaccine_producers" />
+          <EntitySet Name="vaccine_records" EntityType="Self.vaccine_records" />
+          <EntitySet Name="vaccines" EntityType="Self.vaccine" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VaccineModelStoreContainer" CdmEntityContainer="VaccineEntities">
+          <EntitySetMapping Name="communities">
+            <EntityTypeMapping TypeName="VaccineModel.community">
+              <MappingFragment StoreEntitySet="communities">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nik" ColumnName="nik" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hospitals">
+            <EntityTypeMapping TypeName="VaccineModel.hospital">
+              <MappingFragment StoreEntitySet="hospitals">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hospital_name" ColumnName="hospital_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producers">
+            <EntityTypeMapping TypeName="VaccineModel.producer">
+              <MappingFragment StoreEntitySet="producers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producer_name" ColumnName="producer_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="province" ColumnName="province" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="VaccineModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="roles" ColumnName="roles" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vaccine_producers">
+            <EntityTypeMapping TypeName="VaccineModel.vaccine_producers">
+              <MappingFragment StoreEntitySet="vaccine_producers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="producer_id" ColumnName="producer_id" />
+                <ScalarProperty Name="vaccine_id" ColumnName="vaccine_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vaccine_records">
+            <EntityTypeMapping TypeName="VaccineModel.vaccine_records">
+              <MappingFragment StoreEntitySet="vaccine_records">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="community_id" ColumnName="community_id" />
+                <ScalarProperty Name="hospital_id" ColumnName="hospital_id" />
+                <ScalarProperty Name="vaccine_id" ColumnName="vaccine_id" />
+                <ScalarProperty Name="vaccine_date" ColumnName="vaccine_date" />
+                <ScalarProperty Name="dose_number" ColumnName="dose_number" />
+                <ScalarProperty Name="administration_type" ColumnName="administration_type" />
+                <ScalarProperty Name="nurse_name" ColumnName="nurse_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vaccines">
+            <EntityTypeMapping TypeName="VaccineModel.vaccine">
+              <MappingFragment StoreEntitySet="vaccines">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="vaccine_name" ColumnName="vaccine_name" />
+                <ScalarProperty Name="vaccine_type" ColumnName="vaccine_type" />
+                <ScalarProperty Name="dose_count" ColumnName="dose_count" />
+                <ScalarProperty Name="dose" ColumnName="dose" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

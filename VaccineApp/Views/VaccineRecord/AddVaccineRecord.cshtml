@@ -1,0 +1,72 @@
+﻿@model VaccineApp.MyServiceReference.vaccine_records
+
+@{
+    ViewBag.Title = "Add Vaccine Record";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section breadcrumb_title{
+    <h3>Vaccine Record</h3>
+}
+
+@section breadcrumb_items{
+    <li class="breadcrumb-item">Vaccine Record</li>
+    <li class="breadcrumb-item active">Add Vaccine Record</li>
+}
+
+@section css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/select2.css")">
+}
+
+@section script{
+    <script src="@Url.Content("~/Public/assets/js/select2/select2.full.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/select2/select2-custom.js")"></script>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Add Vaccine Record</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("AddVaccineRecord", "VaccineRecord", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Community</label>
+                            @Html.DropDownList("community_id", ViewBag.Communities as SelectList, "Choose", new { @class = "form-control js-example-basic-single col-sm-12" })
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Vaccine</label>
+                            @Html.DropDownList("vaccine_id", ViewBag.Vaccines as SelectList, "Choose", new { @class = "form-control js-example-basic-single col-sm-12" })
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Hospital</label>
+                            @Html.DropDownList("hospital_id", ViewBag.Hospitals as SelectList, "Choose", new { @class = "form-control js-example-basic-single col-sm-12" })
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Vaccine Date</label>
+                            @Html.TextBoxFor(model => model.vaccine_date, new { @class = "form-control", type = "date" })
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Dose Number</label>
+                            @Html.TextBoxFor(model => model.dose_number, new { @class = "form-control" })
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Administration Type</label>
+                            @Html.TextBoxFor(model => model.administration_type, new { @class = "form-control" })
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Nurse Name</label>
+                            @Html.TextBoxFor(model => model.nurse_name, new { @class = "form-control" })
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="@Url.Action("Index", "VaccineRecord")" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

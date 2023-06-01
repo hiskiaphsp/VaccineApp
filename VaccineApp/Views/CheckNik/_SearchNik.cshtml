@@ -1,0 +1,64 @@
+﻿
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Vaccine Records</h5>
+        </div>
+        <div class="card-body">
+            <div class="dt-ext table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>People Name</th>
+                            <th>NIK</th>
+                            <th>Vaccine Name</th>
+                            <th>Vaccine Date</th>
+                            <th>Administration Type</th>
+                            <th>Nurse Name</th>
+                            <th>Hospital Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Count > 0)
+                        {
+                            int counter = 1;
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@counter</td>
+                                    <td>@item.CommunityName</td>
+                                    <td>@item.NIK</td>
+                                    <td>@item.VaccineName</td>
+                                    <td>@item.VaccineDate</td>
+                                    <td>@item.AdministrationType</td>
+                                    <td>@item.NurseName</td>
+                                    <td>@item.HospitalName</td>
+                                </tr>
+                                counter++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="10">No data available</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>No</th>
+                            <th>People Name</th>
+                            <th>NIK</th>
+                            <th>Vaccine Name</th>
+                            <th>Vaccine Date</th>
+                            <th>Administration Type</th>
+                            <th>Vaccine Type</th>
+                            <th>Nurse Name</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

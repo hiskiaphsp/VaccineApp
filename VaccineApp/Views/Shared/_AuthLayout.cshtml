@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="@Url.Content("~/Public/assets/images/favicon.png")" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/font-awesome.css")">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/icofont.css")">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/themify.css")">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/flag-icon.css")">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/feather-icon.css")">
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/bootstrap.css")">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/style.css")">
+    <link id="color" rel="stylesheet" href="@Url.Content("~/Public/assets/css/color-1.css")" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/responsive.css")">
+
+    <link rel="shortcut icon" href="@Url.Content("~/Public/assets/images/favicon.png")" type="image/x-icon">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="@Url.Content("~/Public/css/toastify.css")" type="text/css" />
+
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
+
+</head>
+<body>
+    @RenderBody()
+    <script src="@Url.Content("~/Public/assets/js/jquery-3.5.1.min.js")"></script>
+    <!-- Bootstrap js-->
+    <script src="@Url.Content("~/Public/assets/js/bootstrap/bootstrap.bundle.min.js")"></script>
+    <!-- feather icon js-->
+    <script src="@Url.Content("~/Public/assets/js/icons/feather-icon/feather.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/icons/feather-icon/feather-icon.js")"></script>
+    <!-- scrollbar js-->
+    <!-- Sidebar jquery-->
+    <script src="@Url.Content("~/Public/assets/js/config.js")"></script>
+    <!-- Theme js-->
+    <script src="@Url.Content("~/Public/assets/js/script.js")"></script>
+
+    <script src="@Url.Content("~/Public/js/toastify.js")"></script>
+
+    @RenderSection("script", required: false)
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+﻿@model VaccineApp.MyServiceReference.vaccine_producers
+
+@{
+    ViewBag.Title = "Add Vaccine Producer";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section breadcrumb_title{
+    <h3>Vaccine Producer</h3>
+}
+
+@section breadcrumb_items{
+    <li class="breadcrumb-item">Vaccine Producer</li>
+    <li class="breadcrumb-item active">Add Vaccine Producer</li>
+}
+
+@section css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/select2.css")">
+}
+
+@section script{
+    <script src="@Url.Content("~/Public/assets/js/select2/select2.full.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/select2/select2-custom.js")"></script>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Add Vaccine Producer</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("AddVaccineProducer", "VaccineProducer", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Vaccine</label>
+                            @Html.DropDownList("vaccine_id", ViewBag.Vaccines as SelectList, "Choose", new { @class = "form-control js-example-basic-single col-sm-12" })
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label pt-0">Producer</label>
+                            @Html.DropDownList("producer_id", ViewBag.Producers as SelectList, "Choose NIK", new { @class = "form-control js-example-basic-single col-sm-12" })
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="@Url.Action("Index", "VaccineProducer")" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

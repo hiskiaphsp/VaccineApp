@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:62498/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:62498/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:62498/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHospitals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHospitals" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHospitals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHospitalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHospitalById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHospitalById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHospitalById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHospitalByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddHospital_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddHospital" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddHospital_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddHospitalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateHospital_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHospital" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateHospital_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHospitalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteHospital_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHospital" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteHospital_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHospitalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccines_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccines" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddVaccine_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVaccine" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddVaccine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVaccineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateVaccine_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVaccine" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateVaccine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVaccineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteVaccine_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVaccine" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteVaccine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVaccineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCommunities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommunities" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCommunities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommunitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCommunityById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommunityById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCommunityById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommunityByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddCommunity_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCommunity" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddCommunity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCommunityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateCommunity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommunity" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateCommunity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCommunityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteCommunity_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCommunity" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteCommunity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCommunityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineRecords" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineRecordById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineRecordById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineRecordById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineRecordByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddVaccineRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVaccineRecord" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddVaccineRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVaccineRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateVaccineRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVaccineRecord" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateVaccineRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVaccineRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteVaccineRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVaccineRecord" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteVaccineRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVaccineRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineProducers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineProducers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineProducers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineProducersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineProducerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineProducerById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVaccineProducerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVaccineProducerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddVaccineProducer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVaccineProducer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddVaccineProducer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVaccineProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateVaccineProducer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVaccineProducer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateVaccineProducer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVaccineProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteVaccineProducer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVaccineProducer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteVaccineProducer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVaccineProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProducers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProducers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProducerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducerById" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProducerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducerByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddProducer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProducer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddProducer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateProducer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProducer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateProducer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProducerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteProducer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProducer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteProducer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProducerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Login" message="tns:IService1_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginResponse" message="tns:IService1_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUsers" message="tns:IService1_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUsersResponse" message="tns:IService1_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUserById" message="tns:IService1_GetUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserByIdResponse" message="tns:IService1_GetUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddUser" message="tns:IService1_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddUserResponse" message="tns:IService1_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateUser" message="tns:IService1_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateUserResponse" message="tns:IService1_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteUser" message="tns:IService1_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteUserResponse" message="tns:IService1_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHospitals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHospitals" message="tns:IService1_GetHospitals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetHospitalsResponse" message="tns:IService1_GetHospitals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHospitalById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHospitalById" message="tns:IService1_GetHospitalById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetHospitalByIdResponse" message="tns:IService1_GetHospitalById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHospital">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddHospital" message="tns:IService1_AddHospital_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddHospitalResponse" message="tns:IService1_AddHospital_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHospital">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateHospital" message="tns:IService1_UpdateHospital_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateHospitalResponse" message="tns:IService1_UpdateHospital_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHospital">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteHospital" message="tns:IService1_DeleteHospital_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteHospitalResponse" message="tns:IService1_DeleteHospital_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccines">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVaccines" message="tns:IService1_GetVaccines_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVaccinesResponse" message="tns:IService1_GetVaccines_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVaccineById" message="tns:IService1_GetVaccineById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVaccineByIdResponse" message="tns:IService1_GetVaccineById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVaccine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddVaccine" message="tns:IService1_AddVaccine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddVaccineResponse" message="tns:IService1_AddVaccine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVaccine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateVaccine" message="tns:IService1_UpdateVaccine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateVaccineResponse" message="tns:IService1_UpdateVaccine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVaccine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteVaccine" message="tns:IService1_DeleteVaccine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteVaccineResponse" message="tns:IService1_DeleteVaccine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCommunities" message="tns:IService1_GetCommunities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCommunitiesResponse" message="tns:IService1_GetCommunities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCommunityById" message="tns:IService1_GetCommunityById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCommunityByIdResponse" message="tns:IService1_GetCommunityById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCommunity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddCommunity" message="tns:IService1_AddCommunity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddCommunityResponse" message="tns:IService1_AddCommunity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommunity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateCommunity" message="tns:IService1_UpdateCommunity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateCommunityResponse" message="tns:IService1_UpdateCommunity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCommunity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteCommunity" message="tns:IService1_DeleteCommunity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteCommunityResponse" message="tns:IService1_DeleteCommunity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVaccineRecords" message="tns:IService1_GetVaccineRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVaccineRecordsResponse" message="tns:IService1_GetVaccineRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineRecordById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVaccineRecordById" message="tns:IService1_GetVaccineRecordById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVaccineRecordByIdResponse" message="tns:IService1_GetVaccineRecordById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVaccineRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddVaccineRecord" message="tns:IService1_AddVaccineRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddVaccineRecordResponse" message="tns:IService1_AddVaccineRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVaccineRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateVaccineRecord" message="tns:IService1_UpdateVaccineRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateVaccineRecordResponse" message="tns:IService1_UpdateVaccineRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVaccineRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteVaccineRecord" message="tns:IService1_DeleteVaccineRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteVaccineRecordResponse" message="tns:IService1_DeleteVaccineRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineProducers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVaccineProducers" message="tns:IService1_GetVaccineProducers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVaccineProducersResponse" message="tns:IService1_GetVaccineProducers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineProducerById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVaccineProducerById" message="tns:IService1_GetVaccineProducerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVaccineProducerByIdResponse" message="tns:IService1_GetVaccineProducerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVaccineProducer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddVaccineProducer" message="tns:IService1_AddVaccineProducer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddVaccineProducerResponse" message="tns:IService1_AddVaccineProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVaccineProducer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateVaccineProducer" message="tns:IService1_UpdateVaccineProducer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateVaccineProducerResponse" message="tns:IService1_UpdateVaccineProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVaccineProducer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteVaccineProducer" message="tns:IService1_DeleteVaccineProducer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteVaccineProducerResponse" message="tns:IService1_DeleteVaccineProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProducers" message="tns:IService1_GetProducers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProducersResponse" message="tns:IService1_GetProducers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducerById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProducerById" message="tns:IService1_GetProducerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProducerByIdResponse" message="tns:IService1_GetProducerById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProducer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddProducer" message="tns:IService1_AddProducer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddProducerResponse" message="tns:IService1_AddProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProducer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateProducer" message="tns:IService1_UpdateProducer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateProducerResponse" message="tns:IService1_UpdateProducer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProducer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteProducer" message="tns:IService1_DeleteProducer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteProducerResponse" message="tns:IService1_DeleteProducer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IService1/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHospitals">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetHospitals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHospitalById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetHospitalById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHospital">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddHospital" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHospital">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateHospital" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHospital">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteHospital" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccines">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVaccines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVaccineById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVaccine">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddVaccine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVaccine">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateVaccine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVaccine">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteVaccine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunities">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCommunities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommunityById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCommunityById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCommunity">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddCommunity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCommunity">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateCommunity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCommunity">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteCommunity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineRecords">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVaccineRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineRecordById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVaccineRecordById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVaccineRecord">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddVaccineRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVaccineRecord">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateVaccineRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVaccineRecord">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteVaccineRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineProducers">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVaccineProducers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVaccineProducerById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVaccineProducerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVaccineProducer">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddVaccineProducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVaccineProducer">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateVaccineProducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVaccineProducer">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteVaccineProducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducers">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetProducers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducerById">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetProducerById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProducer">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddProducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProducer">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateProducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProducer">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteProducer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:62498/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

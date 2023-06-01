@@ -1,0 +1,65 @@
+﻿<div class="sidebar-wrapper" sidebar-layout="stroke-svg">
+    <div class="logo-wrapper">
+        <a href="/"><img class="img-fluid for-light" src="@Url.Content("~/Public/assets/images/logo/logo.png")" alt=""><img class="img-fluid for-dark" src="@Url.Content("~/Public/assets/images/logo/logo_dark.png")" alt=""></a>
+        <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+        <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+    </div>
+    <div class="logo-icon-wrapper"><a href="/"><img class="img-fluid" src="@Url.Content("~/Public/assets/images/logo/logo-icon.png")" alt=""></a></div>
+    <nav class="sidebar-main">
+        <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+        <div id="sidebar-menu">
+            <ul class="sidebar-links" id="simple-bar">
+                <li class="back-btn">
+                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link" href="@Url.Action("Index", "App")">
+                        <i data-feather="activity"></i>
+                        <span>Vaccines</span>
+                    </a>
+                </li>
+                @if (Session["Role"] != null && (Session["Role"].ToString() == "BPOM" || Session["Role"].ToString() == "Hospital" || Session["Role"].ToString() == "Pemerintah"))
+                {
+                    <li class="sidebar-list">
+                        <a class="sidebar-link" href="@Url.Action("Index", "Community")">
+                            <i data-feather="globe"></i>
+                            <span>Communities</span>
+                        </a>
+                    </li>
+                }
+                <li class="sidebar-list">
+                    <a class="sidebar-link active" href="@Url.Action("Index", "VaccineRecord")">
+                        <i data-feather="user-check"></i>
+                        <span>Vaccine Records</span>
+                    </a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link" href="@Url.Action("Index", "Producer")">
+                        <i data-feather="package"></i>
+                        <span>Producers</span>
+                    </a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link" href="@Url.Action("Index", "VaccineProducer")">
+                        <i data-feather="truck"></i>
+                        <span>Vaccine Arrived</span>
+                    </a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link" href="@Url.Action("Index", "Hospital")">
+                        <i data-feather="shield"></i>
+                        <span>Hospitals</span>
+                    </a>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link" href="@Url.Action("Index", "User")">
+                        <i data-feather="users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
+    </nav>
+</div>
+

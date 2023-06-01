@@ -1,0 +1,57 @@
+﻿@model VaccineApp.MyServiceReference.user
+
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section breadcrumb_title{
+    <h3>User</h3>
+}
+
+@section breadcrumb_items{
+    <li class="breadcrumb-item">User</li>
+    <li class="breadcrumb-item active">Edit User</li>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Edit User</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("UpdateUser", "User", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(model => model.id)
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.email, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.email, new { @class = "form-control", placeholder = "Enter email" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.username, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.username, new { @class = "form-control", placeholder = "Enter username" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.password, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.password, new {@type="password", @class = "form-control", placeholder = "Enter password" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.roles, new { @class = "col-form-label pt-0" })
+                            <select class="form-control" id="roles" name="roles">
+                                <option disabled>Choose</option>
+                                <option value="BPOM" @(Model.roles == "BPOM" ? "selected" : "")>BPOM</option>
+                                <option value="Hospital" @(Model.roles == "Hospital" ? "selected" : "")>Hospital</option>
+                                <option value="Producer" @(Model.roles == "Producer" ? "selected" : "")>Producer</option>
+                                <option value="Pemerintah" @(Model.roles == "Pemerintah" ? "selected" : "")>Pemerintah</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="@Url.Action("Index", "User")" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

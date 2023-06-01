@@ -1,0 +1,93 @@
+﻿@model VaccineApp.MyServiceReference.community
+@{
+    ViewBag.Title = "Add Community";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+@section css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/date-picker.css")">
+}
+@section script{
+    <script src="@Url.Content("~/Public/assets/js/datepicker/date-picker/datepicker.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datepicker/date-picker/datepicker.en.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datepicker/date-picker/datepicker.custom.js")"></script>
+
+
+    @if (TempData["error"] != null)
+    {
+        <script>
+                    var errorMessage = '@TempData["error"]';
+                    Toastify({
+                        text: errorMessage,
+                        duration: 3000,
+                        gravity: 'top',
+                        position: 'right',
+                        backgroundColor: 'linear-gradient(to right, #FF0000, #FF5733)',
+                        progressBar: true,
+                        close: true
+                    }).showToast();
+        </script>
+    }
+}
+
+@section breadcrumb_title {
+    <h3>Community</h3>
+}
+@section breadcrumb_items {
+    <li class="breadcrumb-item">Community</li>
+    <li class="breadcrumb-item active">Add Community</li>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Add Community</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("AddCommunity", "Community", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.nik, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.nik, new { @class = "form-control", placeholder = "Enter NIK" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.name, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.name, new { @class = "form-control", placeholder = "Enter name" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.date_of_birth, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.date_of_birth, new { @class = "form-control datepicker-here form-control digits", placeholder = "Enter date of birth" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.address, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.address, new { @class = "form-control", placeholder = "Enter address" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.city, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.city, new { @class = "form-control", placeholder = "Enter city" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.province, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.province, new { @class = "form-control", placeholder = "Enter province" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.country, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.country, new { @class = "form-control", placeholder = "Enter country" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.phone_number, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.phone_number, new { @class = "form-control", placeholder = "Enter phone number" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.email, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.email, new { @class = "form-control", placeholder = "Enter email" })
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="@Url.Action("Index", "Community")" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

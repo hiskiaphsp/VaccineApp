@@ -1,0 +1,62 @@
+﻿@model VaccineApp.MyServiceReference.hospital
+@{
+    ViewBag.Title = "Edit Hospital";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section breadcrumb_title {
+    <h3>Hospital</h3>
+}
+
+@section breadcrumb_items {
+    <li class="breadcrumb-item">Hospital</li>
+    <li class="breadcrumb-item active">Edit Hospital</li>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Edit Hospital</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("EditHospital", "Hospital", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(model => model.id)
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.hospital_name, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.hospital_name, new { @class = "form-control", placeholder = "Enter hospital name" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.address, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.address, new { @class = "form-control", placeholder = "Enter address" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.city, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.city, new { @class = "form-control", placeholder = "Enter city" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.province, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.province, new { @class = "form-control", placeholder = "Enter province" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.country, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.country, new { @class = "form-control", placeholder = "Enter country" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.phone_number, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.phone_number, new { @class = "form-control", placeholder = "Enter phone number" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.email, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.email, new { @class = "form-control", placeholder = "Enter email" })
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="@Url.Action("Index", "Hospital")" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

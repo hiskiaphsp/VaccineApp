@@ -1,0 +1,12 @@
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\bin\Service.dll.config
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\bin\Service.dll
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\bin\Service.pdb
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\bin\EntityFramework.dll
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\bin\EntityFramework.SqlServer.dll
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\bin\EntityFramework.xml
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\bin\EntityFramework.SqlServer.xml
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\obj\Debug\Service.csproj.AssemblyReference.cache
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\obj\Debug\Service.csproj.CopyComplete
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\obj\Debug\Service.dll
+D:\Perkuliahan\KULIAH SEMESTER 4\TEKNET\Project\VaccineApp\Service\obj\Debug\Service.pdb

@@ -1,0 +1,75 @@
+﻿@model VaccineApp.MyServiceReference.producer
+@{
+    ViewBag.Title = "Add Producer";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section script {
+    @if (TempData["error"] != null)
+    {
+        <script>
+            var errorMessage = '@TempData["error"]';
+            Toastify({
+                text: errorMessage,
+                duration: 3000,
+                gravity: 'top',
+                position: 'right',
+                backgroundColor: 'linear-gradient(to right, #FF0000, #FF5733)',
+                progressBar: true,
+                close: true
+            }).showToast();
+        </script>
+    }
+}
+
+@section breadcrumb_title {
+    <h3>Producer</h3>
+}
+
+@section breadcrumb_items {
+    <li class="breadcrumb-item">Producer</li>
+    <li class="breadcrumb-item active">Add Producer</li>
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Add Producer</h5>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("AddProducer", "Producer", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.producer_name, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.producer_name, new { @class = "form-control", placeholder = "Enter producer name" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.address, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.address, new { @class = "form-control", placeholder = "Enter address" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.city, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.city, new { @class = "form-control", placeholder = "Enter city" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.province, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.province, new { @class = "form-control", placeholder = "Enter province" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.country, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.country, new { @class = "form-control", placeholder = "Enter country" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(model => model.phone_number, new { @class = "col-form-label pt-0" })
+                            @Html.TextBoxFor(model => model.phone_number, new { @class = "form-control", placeholder = "Enter phone number" })
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="@Url.Action("Index", "Producer")" class="btn btn-secondary">Cancel</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

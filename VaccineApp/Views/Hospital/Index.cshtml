@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Hospital";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section breadcrumb_title{
+    <h3>Hospitals</h3>
+}
+@section breadcrumb_items{
+    <li class="breadcrumb-item active">Hospitals</li>
+}
+@section css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/datatables.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Public/assets/css/vendors/datatable-extension.css")">
+
+}
+@section script{
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatables/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.buttons.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/buttons.colVis.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/pdfmake.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/vfs_fonts.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.autoFill.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.select.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/buttons.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/buttons.html5.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/buttons.print.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.responsive.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/responsive.bootstrap4.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.keyTable.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.colReorder.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.fixedHeader.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.rowReorder.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/dataTables.scroller.min.js")"></script>
+    <script src="@Url.Content("~/Public/assets/js/datatable/datatable-extension/custom.js")"></script>
+
+}
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Hospitals</h5>
+        </div>
+        <div class="card-body">
+            @if (Session["Role"] != null && (Session["Role"].ToString() == "Pemerintah" || Session["Role"].ToString() == "BPOM"))
+            {
+                <div class="d-flex justify-content-end mb-3">
+                    <a class="btn btn-primary" href="@Url.Action("AddHospital", "Hospital")">Add Hospital</a>
+                </div>
+            }
+            <div class="dt-ext table-responsive">
+                <table class="display" id="export-button">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Hospital Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Province</th>
+                            <th>Country</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            @if (Session["Role"] != null && (Session["Role"].ToString() == "Pemerintah" || Session["Role"].ToString() == "BPOM"))
+                            { 
+                                <th>Action</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int counter = 1;
+                            foreach (var hospital in Model)
+                            {
+                                <tr>
+                                    <td>@counter</td>
+                                    <td>@hospital.hospital_name</td>
+                                    <td>@hospital.address</td>
+                                    <td>@hospital.city</td>
+                                    <td>@hospital.province</td>
+                                    <td>@hospital.country</td>
+                                    <td>@hospital.phone_number</td>
+                                    <td>@hospital.email</td>
+                                    @if (Session["Role"] != null && (Session["Role"].ToString() == "Pemerintah" || Session["Role"].ToString() == "BPOM"))
+                                    {
+                                        <td>
+                                            <ul class="action">
+                                                <li class="edit">
+                                                    <a href="@Url.Action("EditHospital", "Hospital", new { id = hospital.id })"><i class="icon-pencil-alt"></i></a>
+                                                </li>
+                                                <li class="delete">
+                                                    <a href="@Url.Action("DeleteHospital", "Hospital", new { id = hospital.id })" onclick="return confirm('Apakah anda yakin ingin menghapus rumah sakit ini?');"><i class="icon-trash"></i></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    }
+                                </tr>
+                                counter++;
+
+                            }
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>No</th>
+                            <th>Hospital Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Province</th>
+                            <th>Country</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            @if (Session["Role"] != null && (Session["Role"].ToString() == "Pemerintah" || Session["Role"].ToString() == "BPOM"))
+                            {
+                                <th>Action</th>
+                            }
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
